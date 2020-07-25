@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Collection;
 
 @Entity
 @Table(name = "product", schema = "shop")
@@ -18,7 +19,6 @@ public class ProductEntity {
     @Column(name = "article")
     private int article;
 
-    @Basic
     @Column(name = "product_name")
     private String productName;
 
@@ -34,7 +34,19 @@ public class ProductEntity {
     @JoinColumn(name = "category_id")
     private CategoryEntity categoryEntity;
 
-    @Basic
+    @ManyToOne
+    @JoinColumn(name = "collection_id")
+    private CollectionEntity collectionEntity;
+
     @Column(name = "price")
     private BigDecimal price;
+
+    @Column(name = "discount")
+    private short discount;
+
+    @ManyToMany
+    private Collection<OrderProductEntity> productOrderEntities;
+
+    @ManyToMany
+    private Collection<SizeProductQuantityEntity> productSizeEntities;
 }

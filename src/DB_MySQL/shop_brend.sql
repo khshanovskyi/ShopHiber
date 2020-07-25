@@ -25,6 +25,7 @@ DROP TABLE IF EXISTS `brend`;
 CREATE TABLE `brend` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(128) COLLATE utf8_bin NOT NULL,
+  `discount` smallint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -36,7 +37,7 @@ CREATE TABLE `brend` (
 
 LOCK TABLES `brend` WRITE;
 /*!40000 ALTER TABLE `brend` DISABLE KEYS */;
-INSERT INTO `brend` VALUES (3,'Adidas'),(1,'D&G'),(2,'DC Shoes'),(5,'Nike'),(4,'Puma'),(8,'sdsd');
+INSERT INTO `brend` VALUES (1,'D&G',0),(2,'DC Shoes',0),(3,'Adidas',0),(4,'Puma',0),(5,'Nike',0);
 /*!40000 ALTER TABLE `brend` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-23 20:28:44
+-- Dump completed on 2020-07-25 18:31:26

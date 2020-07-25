@@ -3,8 +3,7 @@ package entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 @Entity
 @Table(name = "type", schema = "shop")
@@ -22,7 +21,10 @@ public class TypeEntity {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "discount")
+    private short discount;
+
     @OneToMany(mappedBy = "typeEntity")
-    private List<ProductEntity>  productEntities = new ArrayList<ProductEntity>();
+    private Collection<ProductEntity> productEntities;
 
 }

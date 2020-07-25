@@ -25,11 +25,10 @@ DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(128) COLLATE utf8_bin NOT NULL,
-  `discount` tinyint NOT NULL,
-  `alias_name` varchar(128) COLLATE utf8_bin DEFAULT NULL,
+  `discount` smallint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +37,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'woomen clothes',0,'some info'),(2,'woomen shoes',15,'some info'),(3,'men clothes',10,'men\'s clothes'),(4,'men shoes',5,'some info'),(6,'headwear',0,'some info'),(7,'scarf',18,'some info');
+INSERT INTO `category` VALUES (1,'woomen clothes',0),(2,'woomen shoes',0),(3,'men clothes',0),(4,'men shoes',0),(6,'headwear',0),(7,'scarf',0),(8,'unisex',0);
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-23 20:28:43
+-- Dump completed on 2020-07-25 18:31:25

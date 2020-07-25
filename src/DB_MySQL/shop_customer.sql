@@ -26,8 +26,8 @@ CREATE TABLE `customer` (
   `personal_card_id` bigint NOT NULL,
   `phone_number` bigint NOT NULL,
   `name` varchar(45) NOT NULL,
-  `disount` smallint NOT NULL,
-  PRIMARY KEY (`personal_card_id`,`phone_number`),
+  `discount` smallint NOT NULL,
+  PRIMARY KEY (`personal_card_id`),
   UNIQUE KEY `idcustomer_UNIQUE` (`personal_card_id`),
   UNIQUE KEY `phone_number_UNIQUE` (`phone_number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-23 20:28:44
+-- Dump completed on 2020-07-25 18:31:26

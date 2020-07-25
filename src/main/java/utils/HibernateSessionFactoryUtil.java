@@ -1,6 +1,8 @@
 package utils;
 
 import entity.*;
+import entity.view.AllOrdersInfoView;
+import entity.view.FullProductsInfoView;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -16,19 +18,18 @@ public class HibernateSessionFactoryUtil {
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration().configure();
-                configuration.addAnnotatedClass(AllProductsEntity.class);
+                configuration.addAnnotatedClass(FullProductsInfoView.class);
                 configuration.addAnnotatedClass(BrendEntity.class);
                 configuration.addAnnotatedClass(CategoryEntity.class);
                 configuration.addAnnotatedClass(CustomerEntity.class);
-                configuration.addAnnotatedClass(CustomerEntityPK.class);
                 configuration.addAnnotatedClass(OrderEntity.class);
                 configuration.addAnnotatedClass(OrderProductEntity.class);
-                configuration.addAnnotatedClass(OrderProductEntityPK.class);
                 configuration.addAnnotatedClass(ProductEntity.class);
                 configuration.addAnnotatedClass(SizeEntity.class);
                 configuration.addAnnotatedClass(SizeProductQuantityEntity.class);
-                configuration.addAnnotatedClass(SizeProductQuantityEntityPK.class);
                 configuration.addAnnotatedClass(TypeEntity.class);
+                configuration.addAnnotatedClass(CollectionEntity.class);
+                configuration.addAnnotatedClass(AllOrdersInfoView.class);
 
                 StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties());

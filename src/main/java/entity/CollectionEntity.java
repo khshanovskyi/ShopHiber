@@ -3,16 +3,17 @@ package entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 
 @Entity
-@Table(name = "brend", schema = "shop")
+@Table(name = "collection", schema = "shop")
 @Getter
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class BrendEntity {
+public class CollectionEntity implements Serializable {
 
     @Id
     @Column(name = "id")
@@ -24,6 +25,6 @@ public class BrendEntity {
     @Column(name = "discount")
     private short discount;
 
-    @OneToMany(mappedBy = "brendEntity")
+    @OneToMany(mappedBy = "collectionEntity")
     private Collection<ProductEntity> productEntities;
 }

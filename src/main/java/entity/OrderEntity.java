@@ -1,51 +1,34 @@
 package entity;
 
+import lombok.*;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
-@Table(name = "order", schema = "shop", catalog = "")
-public class OrderEntity {
-    private int id;
-    private Timestamp datetime;
+@Table(name = "order", schema = "shop")
+@Getter
+@Setter
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
+public class OrderEntity implements Serializable {
 
     @Id
     @Column(name = "id")
-    public int getId() {
-        return id;
-    }
+    private int id;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private CustomerEntity customerEntity;
 
-    @Basic
     @Column(name = "datetime")
-    public Timestamp getDatetime() {
-        return datetime;
-    }
+    private Timestamp datetime;
 
-    public void setDatetime(Timestamp datetime) {
-        this.datetime = datetime;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        OrderEntity that = (OrderEntity) o;
-
-        if (id != that.id) return false;
-        if (datetime != null ? !datetime.equals(that.datetime) : that.datetime != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (datetime != null ? datetime.hashCode() : 0);
-        return result;
-    }
+    @ManyToMany
+    private Collection<OrderProductEntity> orderProductEntities;
 }

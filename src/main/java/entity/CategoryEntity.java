@@ -3,8 +3,7 @@ package entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 @Entity
 @Table(name = "category", schema = "shop")
@@ -23,12 +22,9 @@ public class CategoryEntity {
     private String name;
 
     @Column(name = "discount")
-    private byte discount;
-
-    @Column(name = "alias_name")
-    private String aliasName;
+    private short discount;
 
     @OneToMany(mappedBy = "categoryEntity")
-    private List<ProductEntity> productEntities = new ArrayList<ProductEntity>();
+    private Collection<ProductEntity> productEntities ;
 }
 

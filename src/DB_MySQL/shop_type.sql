@@ -25,6 +25,7 @@ DROP TABLE IF EXISTS `type`;
 CREATE TABLE `type` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(128) COLLATE utf8_bin NOT NULL,
+  `discount` smallint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -36,7 +37,7 @@ CREATE TABLE `type` (
 
 LOCK TABLES `type` WRITE;
 /*!40000 ALTER TABLE `type` DISABLE KEYS */;
-INSERT INTO `type` VALUES (1,'boots'),(3,'dress'),(5,'keds'),(4,'sneakers'),(2,'sweter'),(7,'t-shirt'),(6,'trouthers');
+INSERT INTO `type` VALUES (1,'boots',0),(2,'sweter',0),(3,'dress',0),(4,'sneakers',0),(5,'keds',0),(6,'trouthers',0),(7,'t-shirt',0);
 /*!40000 ALTER TABLE `type` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-23 20:28:44
+-- Dump completed on 2020-07-25 18:31:26

@@ -1,64 +1,34 @@
 package entity;
 
+import lombok.*;
+
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
-@Table(name = "size_product_quantity", schema = "shop", catalog = "")
-@IdClass(SizeProductQuantityEntityPK.class)
-public class SizeProductQuantityEntity {
-    private int productId;
-    private int sizeId;
-    private int quantity;
+@Table(name = "size_product_quantity", schema = "shop")
+@Getter
+@Setter
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
+public class SizeProductQuantityEntity implements Serializable {
 
     @Id
     @Column(name = "product_id")
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
+    private int productId;
 
     @Id
     @Column(name = "size_id")
-    public int getSizeId() {
-        return sizeId;
-    }
+    private int sizeId;
 
-    public void setSizeId(int sizeId) {
-        this.sizeId = sizeId;
-    }
-
-    @Basic
     @Column(name = "quantity")
-    public int getQuantity() {
-        return quantity;
-    }
+    private int quantity;
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+    @ManyToMany(mappedBy = "productSizeEntities")
+    private Collection<ProductEntity> productEntities;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        SizeProductQuantityEntity that = (SizeProductQuantityEntity) o;
-
-        if (productId != that.productId) return false;
-        if (sizeId != that.sizeId) return false;
-        if (quantity != that.quantity) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = productId;
-        result = 31 * result + sizeId;
-        result = 31 * result + quantity;
-        return result;
-    }
+    @ManyToMany(mappedBy = "sizeProductEntities")
+    private Collection<SizeEntity> sizeEntities;
 }
