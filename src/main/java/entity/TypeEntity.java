@@ -12,6 +12,7 @@ import java.util.Collection;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class TypeEntity {
 
     @Id
@@ -22,7 +23,7 @@ public class TypeEntity {
     private String name;
 
     @Column(name = "discount")
-    private short discount;
+    private short discount = 0;
 
     @OneToMany(mappedBy = "typeEntity")
     private Collection<ProductEntity> productEntities;

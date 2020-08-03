@@ -13,6 +13,7 @@ import java.util.Collection;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class ProductEntity {
 
     @Id

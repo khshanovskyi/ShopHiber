@@ -13,6 +13,7 @@ import java.util.Collection;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class CollectionEntity implements Serializable {
 
     @Id
@@ -23,7 +24,7 @@ public class CollectionEntity implements Serializable {
     private String name;
 
     @Column(name = "discount")
-    private short discount;
+    private short discount = 0;
 
     @OneToMany(mappedBy = "collectionEntity")
     private Collection<ProductEntity> productEntities;

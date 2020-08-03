@@ -13,6 +13,7 @@ import java.util.Collection;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class SizeProductQuantityEntity implements Serializable {
 
     @Id
@@ -24,7 +25,7 @@ public class SizeProductQuantityEntity implements Serializable {
     private int sizeId;
 
     @Column(name = "quantity")
-    private int quantity;
+    private int quantity = 0;
 
     @ManyToMany(mappedBy = "productSizeEntities")
     private Collection<ProductEntity> productEntities;
